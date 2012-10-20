@@ -1,0 +1,99 @@
+<div id="Linux">
+<table>
+  <caption>File Commain</caption>
+  <tbody>
+    <tr><td><code>pwd</code></td><td>Print working directory.</td></tr>
+    <tr><td><code>cd</code> [dir]</td> <td>Goto Home or specified directory.</td></tr>
+    <tr><td><code>cd</code> -</td> <td>Goto previous directory.</td> </tr>
+    <tr><td><code>ls</code> -la --color=auto, <code>ls -lrt, <code>ls -lSr</td> <td>Quick dir listing, list files by date,  list files by size</td></tr>
+    <tr><td><code>find</code> dir [-maxdepth 1] [-type d] -name filename [| xargs cmd]</td> <td>Find files in dir and subdir by name, then exec cmd with the result.</td> </tr>
+    <tr><td><code>grep</code> [-i --color -H -n] [-r] string files [...]</td> <td>Find string in files, -r for subdir, -l just list file.</td> </tr>
+    <tr><td><code>cp</code> [-r] src dest</td> <td>Copy src to dest.</td> </tr>
+    <tr><td><code>mv</code> src dest</td> <td>Move src to dest or rename src to dest.</td> </tr>
+    <tr><td><code>rm</code> [-rf] filesdir</td> <td>Delete dir or file.</td> </tr>
+    <tr><td><code>ln</code> -s file link</td> <td>Create link for file.</td> </tr>
+    <tr><td><code>cat</code>/<code>less</code>/<code>more</code> file</td> <td>Output the content of file.</td> </tr>
+    <tr><td><code>head</code>/<code>tail</code> [-n number] file</td> <td>Output head or tail of file.</td> </tr>
+    <tr><td><code>tail</code> -f file</td> <td>Output the content of file as it grow.</td> </tr>
+    <tr><td><code>touch</code> file</td> <td>Create or update timastamp of file.</td> </tr>
+    <tr><td><code>chmod</code> number filesdir</td> <td>4:read,2:write,1:exec,0:none, owner/group/world.</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>System</caption>
+  <tbody>
+    <tr> <td><code>which</code> command</td> <td>Show full path name of command.</td> </tr>
+    <tr> <td><code>date</code></td> <td>Print or change the operating system date and time.</td> </tr>
+    <tr> <td><code>who</code></td> <td>Determine the users logged on the machine.</td> </tr>
+    <tr> <td><code>last</code></td> <td>Show listing of users last logged-in on your system.</td> </tr>
+    <tr> <td><code>history</code></td> <td>Show the last commands executed.</td> </tr>
+    <tr> <td><code>set</code></td> <td>Show the current user environment.</td> </tr>
+    <tr> <td><code>uname</code> -a</td> <td>Show kernel version and system architecture.</td> </tr>
+    <tr> <td><code>ps</code> aux, <code>top</code></td> <td>Print process status.</td> </tr>
+    <tr> <td><code>kill</code> [-9] pid, <code>killall</code> procname</td> <td>Kill process.</td> </tr>
+    <tr> <td><code>free</code> -m</td> <td>Print memory usage.</td> </tr>
+    <tr> <td><code>ps</code> aux | <code>awk</code> '{print $4"\t"$2"\t"$11}' | <code>sort</code> -r</td> <td>Print memory usage for process.</td> </tr>
+    <tr> <td><code>df</code> -H</td> <td>Print disk usage.</td> </tr>
+    <tr> <td><code>du</code> -hs filesdir, <code>du</code> -s * | <code>sort</code> -k1,1rn | <code>head</code></td> <td>Print disk usage for directory, -s equivalent to -d 0.</td> </tr>
+    <tr> <td><code>adduser</code> username [-d dir]</td> <td>Create a new user using home dir.</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Networking</caption>
+  <tbody>
+    <tr> <td><code>ping</code> host</td><td>Ping host.</td></tr>
+    <tr> <td><code>whois</code> domain</td><td>Get whois for domain.</td></tr>
+    <tr> <td><code>dig</code> [@dns-server] [any] domain</td><td>Get DNS for domain.</td></tr>
+    <tr> <td><code>lsof</code> -i -P</td> <td>Show open port</td> </tr>
+    <tr> <td><code>lsof</code> -p $$</td> <td>List paths that process id has open.</td> </tr>
+    <tr> <td><code>lsof</code> ~</td> <td>List processes that have specified path open.</td> </tr>
+    <tr> <td><code>netstat</code> -ano</td> <td>Show network status.</td> </tr>
+    <tr> <td><code>ifconfig</code> -a</td> <td>Configure network interface parameters.</td> </tr>
+    <tr> <td><code>traceroute</code> host</td> <td>Trace route to host.</td> </tr>
+    <tr> <td><code>ssh</code> $USER@$HOST command</td> <td>Run command on $HOST as $USER.</td> </tr>
+    <tr> <td><code>ssh</code> -gvN -L 8080:localhost:80 root@$HOST</td><td>Forward connections to localhost:8080 out to $HOST:80.</td></tr>
+    <tr> <td><code>scp</code> -v -p -r -C [-P port] $USER@$HOST:/filedir .</td> <td>Copy remote filefir to local, and vice verse. Use -P to specify dest port.</td> </tr>
+    <tr> <td><code>curl</code> [-o filename/-O] [--compressed] [--silent] "url"</td><td>Transfer a URL, w/o -O or -o, the content will be print to stdout.</td></tr>
+    <tr> <td><code>curl</code> -I url</td><td>Display HTTP header.</td></tr>
+    <tr> <td><code>curl</code> -d "user=username&amp;password=111" url</td><td>Post data.</td></tr>
+    <tr> <td><code>curl</code> -u user:password url</td><td>Auth for URL.</td></tr>
+    <tr> <td><code>curl</code> -r range URL</td><td>Retrieve a byte range of URL content, 0--1024/--1024/1024-- first 1024, last 1024, 1024 to last.</td></tr>
+    <tr> <td><code>curl</code> -C - -O url</td><td>Continue/resume a previous file transfer.</td></tr>
+    <tr> <td><code>curl</code> -H "headername=headervalue" url</td><td>Add header to request.</td></tr>
+    <tr> <td><code>curl</code> -L [--location-trusted] url</td><td>Follow redirect, and send auth data to all location.</td></tr>
+    <tr> <td><code>wget</code> -r --no-parent --level=1 --convert-links "url"</td><td>Recursive retrieving url. <br/><br/>  --backup-converted, Backup orig file before convert link.<br/><br/>  -A '*.jpg', Just download jpg files.</td></tr>
+    <tr> <td><code>wget</code> --mirror "http://www.example.com/"</td><td>Equivalent to -r -N --level=inf --no-remove-listing.</td></tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Archives and Compression</caption>
+  <tbody>
+    <tr> <td><code>tar</code> czvf file.tar files</td> <td>Tar file into file.tar</td> </tr>
+    <tr> <td><code>tar</code> xzvf file.tar</td> <td>Untar into current dicectory</td> </tr>
+    <tr> <td><code>tar</code> tf file.tar</td> <td>Show contents of archive</td> </tr>
+    <tr> <td><code>gizp</code> [-g] file</td> <td>Compress or decompress file</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Text manipulation</caption>
+  <tbody>
+    <tr> <td><code>sed</code> 's/string1/string2/g'</td> <td>Replace string1 with string2</td> </tr>
+    <tr> <td><code>sed</code> -i "" 's/oldstr/newstr/g' `grep "oldstr" -rl .`</td> <td>Replace string1 with string2 in all files</td> </tr>
+    <tr> <td><code>sed</code> '/ *#/d; /^ *$/d'</td> <td>Remove comments and blank lines</td> </tr>
+    <tr> <td><code>sed</code> 's/[ \t]*$//'</td> <td>Remove trailing spaces from lines</td> </tr>
+    <tr> <td><code>sed</code> -n '1000{p;q}'</td> <td>Print 1000th line</td> </tr>
+    <tr> <td><code>sed</code> -n '10,20p;20q'</td> <td>Print lines 10 to 20</td> </tr>
+    <tr> <td><code>wc</code> -l</td> <td>Count lines from stdout</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption></caption>
+  <tbody>
+    <tr> <td></td> <td></td> </tr>
+  </tbody>
+</table>

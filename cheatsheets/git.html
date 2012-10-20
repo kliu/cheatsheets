@@ -1,0 +1,149 @@
+<div id="html5">
+  <h3>Git</h3>
+
+  <div>
+    <article id="page1">
+      <div class="inner">
+        <header><h4>Git Branch</h4></header>
+        <dl>
+          <dt><code>git branch [-a]</code></dt>
+          <dd>List branch</dd>
+          <dt><code>git branch %branchName% [%otherbranch/tag%]</code></dt>
+          <dd>Create a local branch based on HEAD or other branch or tag</dd>
+          <dt><code>git branch -d %branchName%</code> <br/> <code>git push %remoteRepoName% :%remoteBranchName%</code></dt>
+          <dd>Delete local or remote branch</dd>
+          <dt><code>git checkout %name%</code></dt>
+          <dd>Switch to branch</dd>
+          <dt><code>git checkout -b %name% [%otherbranch/tag%]</code></dt>
+          <dd>Equivalent to create new branch and switch to it.</dd>
+          <dt><code>git merge [--no-ff] %branchName%</code> <br/> <code>git merge %remoteRepoName%/%remoteBranchName%</code></dt>
+          <dd>Merge specified branch (local or remote) to current branch</dd>
+          <dt><code>git fetch [%remoteRepoName%]</code></dt>
+          <dd>Fetch objects from remote repo, but doesn't merge</dd>
+          <dt><code>git pull [%remoteRepoName%]</code></dt>
+          <dd>Fetch and merge the tracking remote branch to local branch</dd>
+          <dt><code>git push</code></dt>
+          <dd>Push changes on current local branch to the tracking remote branch</dd>
+          <dt><code>git push %remoteRepo% %localBranch%:%remoteBranch%</code><br/><code>git push [-u] %remoteRepo% %branchName%</code></dt>
+          <dd>Push changes on %localBranch% to remote, create remote branch when it isn't exist.<br/>Equivalent to %localBranch% == %remoteBranch%</dd>
+          <dt><code>git checkout -b %newBranch% [%basedBranch%]</code><br/><code>git push %remoteRepo% %newBranch%</code></dt>
+          <dd>Create a local branch and switch to it, then push the local branch to remote</dd>
+          <dt><code>git fetch [%remoteRepo%]</code><br/><code>git checkout -b %branchName% %remoteRepo%/%branchName%</code></dt>
+          <dd>Fetch all remote changes, then create and switch a local branch based on the remote branch and tracking it.</dd>
+        </dl>
+      </div>
+    </article>
+    <article id="page2">
+      <div class="inner">
+        <header><h4>Git Basic</h4></header>
+        <dl>
+          <dt><code>git init</code></dt>
+          <dd>Create git repo</dd>
+          <dt><code>git clone repo_path_or_uri [target_dir]</code></dt>
+          <dd>Clone git repo to target_dir</dd>
+          <dt><code>git add $file</code><br/><code>git add .</code></dt>
+          <dd>Add filesdir to the index</dd>
+          <dt><code>git -m "comments"</code></dt>
+          <dd>Commit with comments</dd>
+          <dt><code>git status</code></dt>
+          <dd>Show the working tree status</dd>
+          <dt><code>git diff $id1 $id2</code></dt>
+          <dd>Show changes between commits, commit and working tree</dd>
+          <dt><code>git log [--oneline --decorate] [-p]</code></dt>
+          <dd>Show commit logs</dd>
+          <dt><code>git reflog</code></dt>
+          <dd>Manage reflog information</dd>
+          <dt><code>git blame $file</code></dt>
+          <dd>Show modify details of each line of a file</dd>
+          <dt><code>git show $id/$id:$file</code></dt>
+          <dd>Show various types of objects</dd>
+          <dt><code>git name-rev --name-only %commitid%</code></dt>
+          <dd>Get tag by commit id</dd>
+          <dt><code>git branch --contains%commitid%</code></dt>
+          <dd>Get branch by commit id</dd>
+          <dt><code>git ``ls``-files</code></dt>
+          <dd>To see which files have been commited</dd>
+          <dt><code>git cherry-pick $id</code></dt>
+          <dd>Add the specified commit to current branch</dd>
+        </dl>
+      </div>
+    </article>
+  </div>
+
+  <div>
+    <article id="page3">
+      <div class="inner">
+        <header><h4>Git Rollback</h4></header>
+        <dl>
+          <dt><code>git checkout -- $file</code></dt>
+          <dd>Discard changes of tracked but unstaged files</dd>
+          <dt><code>git clean -df</code></dt>
+          <dd>Remove all untracked files, but doesn't touch the files ignored by git. Use -xdf to remove untracked+ignored files.</dd>
+          <dt><code>git clean -Xdf</code></dt>
+          <dd>Remove only files ignored by git, but keep manually created files.</dd>
+          <dt><code>git reset --soft/hard/mixed $id</code></dt>
+          <dd>Reset files to specified version.<br>
+              --soft, doesn't touch the staged/unstaged/untracked files.<br/>
+              --mixed, and move staged files to original state(unstaged or untracked), doesn't touch the unstaged/untracked files.<br/>
+              --hard, also reset staged/unstaged files, doesn't touch the untracked files.</dd>
+          <dt><code>git commit -a --amend</code></dt>
+          <dd>Redo the last time commit, with new indexed file and comments</dd>
+        </dl>
+        <p>There are 4 status of the gited files, commited(<code>git-commit</code>), staged(<code>git-add</code>), unstaged(modified/deleted file), untracked(new file).</p>
+      </div>
+    </article>
+    <article id="page4">
+      <div class="inner">
+        <header><h4>Git Remote</h4></header>
+        <dl>
+          <dt><code>git remove [-v]</code></dt>
+          <dd>List remote repos</dd>
+          <dt><code>git remote show %remoteRepoName%</code></dt>
+          <dd>Show infomataion of remote repo</dd>
+          <dt><code>git remote add %remoteRepoName% %URL%</code></dt>
+          <dd>Add remote repo and specify a alias name for it</dd>
+          <dt><code>git remote rename %oldRepoName% %newRepoName%</code></dt>
+          <dd>Change the alias name of remote repo</dd>
+          <dt><code>git remote rm %remoteRepoName%</code></dt>
+          <dd>Forget remote repo</dd>
+          <dt><code>git remote prune %remoteRepoName%</code></dt>
+          <dd>Cleanup remote repo, used to cleanup deleted remote branch</dd>
+        </dl>
+      </div>
+    </article>
+
+  </div>
+
+  <div>
+    <article id="page5">
+      <div class="inner">
+        <header><h4>Git Submodule</h4></header>
+        <dl>
+          <dt><code>git submodule add %gitURI% %path/to/submodule%</code></dt>
+          <dd>Add submodule</dd>
+          <dt><code>git submodule update --init --recursive</code></dt>
+          <dd>Update submodules</dd>
+          <dt><code>git submodule rm %path/to/submodule%</code><br/><code>git rm --cached %path/to/submodule%</code></dt>
+          <dd>Remote submodule.</dd>
+        </dl>
+        <p>当第一次更新或克隆submodule（非添加）时，submodule的代码会被拿下来，但是submodule的工作区没和任何branch绑定，因此需要先checkout到branch上，才能修改submodule，例如checkout master</p>
+      </div>
+    </article>
+    <article id="page6">
+      <div class="inner">
+        <header><h4>Git Tag</h4></header>
+        <dl>
+          <dt><code>git tag</code><br/><code>git tag -l "name*"</code></dt>
+          <dd>List tags</dd>
+          <dt><code>git tag -a %name% [-m "comment"]</code></dt>
+          <dd>Create a tag with comments</dd>
+          <dt><code>git tag -a %name% %commitID%</code></dt>
+          <dd>Create a tag for specified commit</dd>
+          <dt><code>git tag -d %name%</code></dt>
+          <dd>Delete tag</dd>
+          <dt><code>git push %tagName%/--tags</code></dt>
+          <dd>Push specified tag or all tags to remote repo</dd>
+        </dl>
+      </div>
+    </article>
+    </div>

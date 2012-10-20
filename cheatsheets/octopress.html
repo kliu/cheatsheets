@@ -1,0 +1,38 @@
+<div id="Octopress">
+
+<table>
+  <caption>Command</caption>
+  <tbody>
+    <tr> <td><code>rake</code> new_post["title"]</td> <td>Creates source/_posts/yyyy-mm-dd-title.markdown</td> </tr>
+    <tr> <td><code>rake</code> new_page[super-awesome]</td> <td>Creates super-awesome/index.markdown</td> </tr>
+    <tr> <td><code>rake</code> generate</td> <td>Generates posts and pages into the public directory</td> </tr>
+    <tr> <td><code>rake</code> watch</td> <td>Watches source/ and sass/ for changes and regenerates</td> </tr>
+    <tr> <td><code>rake</code> preview</td> <td>Watches, and mounts a webserver at http://localhost:4000</td> </tr>
+    <tr> <td><code>rake</code> deploy</td> <td>Deploy to github</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Plugin</caption>
+  <tbody>
+    <tr> <td>{% gist gist_id [filename] %}</td> <td>Gist Embedding, If you have a gist with multiple files, you can include files one at a time by adding the name after the gist id.</td> </tr>
+    <tr> <td>{% include_code [title] [lang:language] path/to/file %}</td> <td>Include Code Snippets, source/downloads/code/path/to/file</td> </tr>
+    <tr> <td>{% codeblock [title] [lang:language] [url] [link text] %} code snippet {% endcodeblock %}</td> <td>Inline Code Blocks</td> </tr>
+    <tr> <td>{% video url/to/video [width height] [url/to/poster] %}</td> <td>Video Embedding</td> </tr>
+    <tr> <td>{% img [left/right] /path/to/image [width] [height] [title text [alt text]] %}</td> <td>Image Embedding</td> </tr>
+    <tr> <td>{% blockquote [author[, source]] [link] [source_link_title] %} Quote string {% endblockquote %}}</td> <td>Blockquote</td> </tr>
+    <tr> <td>{% pullquote %} Surround your paragraph with the pull quote tags. {% endpullquote %}</td> <td>Pull quote</td> </tr>
+    <tr> <td>{% render_partial path/to/file %}</td> <td>>Link a file, source/path/to/file</td> </tr>
+    <tr> <td>{% include path/to/file %}</td> <td>Link a file, source/_includes/path/to/file</td> </tr>
+    <tr> <td>&lt;!-- more --&gt;</td> <td>Continue button links to the full post.</td> </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Keyword</caption>
+  <tbody>
+    <tr> <td>categories: Sass</td> <td>One category</td> </tr>
+    <tr> <td>categories: [CSS3, Sass, Media Queries]</td> <td>Multiple categories</td> </tr>
+    <tr> <td>published: false</td> <td>If you want to work on posts without publishing them</td> </tr>
+  </tbody>
+</table>
